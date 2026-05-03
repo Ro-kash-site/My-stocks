@@ -1,0 +1,42 @@
+import streamlit as st
+import yfinance as yf
+import pandas as pd
+from datetime import datetime
+
+my_portfolio = {
+    "HDFCBANK.NS": 10,       
+    "SHRIRAMFIN.NS": 5,      
+    "WIPRO.NS": 20,          
+    "ANDHRAPET.NS": 50,      
+    "JINDALSTEL.NS": 15
+}
+
+st.set_page_config(page_title="My Live Portfolio", page_icon="📈")
+
+st.title("🚀 My Live Stock Tracker")
+st.write(f"Last Updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+
+data = []
+total_value = 0
+
+with st.spinner('Updating prices...'):
+    for ticker, shares in my_portfolio.items():
+        stock = yf.Ticker(ticker)
+        
+        price = stock.fast_info['last_price']
+        current_value = price * shares
+        total_value += current_value
+        
+        data.append({
+            "Stock": ticker.replace(".NS", ""),
+            "Price (₹)": round(price, 2),
+            "Shares": shares,
+            "Value (₹)": round(current_value, 2)
+        })
+
+df = pd.DataFrame(data)
+st.table(df)
+
+st.metric(label="Total Portfolio Value", value=f"₹{total_value:,.2f}")
+
+st.button("Manual Refresh")
