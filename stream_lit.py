@@ -8,7 +8,7 @@ my_portfolio = {
     "HDFCBANK.NS": 10,       
     "SHRIRAMFIN.NS": 5,      
     "WIPRO.NS": 20,          
-    "ANDHRAPET.NS": 50,      
+    "ANDHRAPET.BO": 50,      
     "JINDALSTEL.NS": 15
 }
 
