@@ -5,11 +5,11 @@ from datetime import datetime
 
 
 my_portfolio = {
-    "HDFCBANK.NS": 10,       
-    "SHRIRAMFIN.NS": 5,      
-    "WIPRO.NS": 20,          
+    "HDFCBANK.BO": 10,       
+    "SHRIRAMFIN.BO": 5,      
+    "WIPRO.BO": 20,          
     "ANDHRAPET.BO": 50,      
-    "JINDALSTEL.NS": 15
+    "JINDALSTEL.BO": 15
 }
 
 st.set_page_config(page_title="My Live Portfolio", page_icon="📈")
